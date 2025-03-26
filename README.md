@@ -1,112 +1,112 @@
-# MD图片本地化工具
+# MD Image Localizer
 
-一个纯前端的Markdown图片本地化工具，可以将Markdown文件中的外链图片下载到本地，并更新Markdown中的图片引用路径。
+A pure frontend tool for converting external images in Markdown files to local images, updating image references to relative paths.
 
-## 功能特点
+## Features
 
-- 🖼️ **图片本地化**：自动下载Markdown中的外链图片到本地
-- 📂 **文件整理**：创建images文件夹存放下载的图片
-- 🔄 **链接更新**：自动更新Markdown中的图片链接为相对路径
-- 💾 **一键导出**：将处理后的Markdown和图片打包下载
-- 🚀 **纯前端实现**：无需后端服务，完全在浏览器中运行
-- 🌐 **跨域处理**：支持处理各种来源的图片，包括防盗链图片
+- 🖼️ **Image Localization**: Automatically download external images in Markdown to local files
+- 📂 **File Organization**: Create an images folder to store downloaded images
+- 🔄 **Link Updates**: Automatically update image links in Markdown to relative paths
+- 💾 **One-Click Export**: Package processed Markdown and images for download
+- 🚀 **Pure Frontend Implementation**: No backend service required, runs entirely in the browser
+- 🌐 **Cross-Origin Handling**: Supports processing images from various sources, including hotlink-protected images
 
-## 在线使用
+## Online Usage
 
-访问项目页面直接在线使用本工具（部署后更新链接）。
+Visit [https://md-image-split.vercel.app/](https://md-image-split.vercel.app/) to use the tool directly online.
 
-## 本地安装与运行
+## Local Installation and Running
 
-### 前提条件
+### Prerequisites
 
-- Node.js 16.0.0 或更高版本
-- npm 或 yarn 包管理器
+- Node.js 16.0.0 or higher
+- npm or yarn package manager
 
-### 安装步骤
+### Installation Steps
 
-1. 克隆项目仓库
+1. Clone the repository
 
 ```bash
 git clone https://github.com/zhb161/md-image-split.git
 cd md-image-split
 ```
 
-2. 安装依赖
+2. Install dependencies
 
 ```bash
 npm install
-# 或
+# or
 yarn install
 ```
 
-3. 启动开发服务器
+3. Start the development server
 
 ```bash
 npm run dev
-# 或
+# or
 yarn dev
 ```
 
-4. 在浏览器中访问 `http://localhost:3000`
+4. Visit `http://localhost:3000` in your browser
 
-### 构建静态网站
+### Building a Static Website
 
-如果你想构建静态网站以部署到任何网络服务器：
+If you want to build a static website for deployment to any web server:
 
 ```bash
 npm run build
-# 或
+# or
 yarn build
 ```
 
-构建完成后，所有静态文件将位于 `out` 目录中。
+After building, all static files will be in the `out` directory.
 
-### 本地预览静态网站
+### Preview Static Website Locally
 
-你可以使用以下命令在本地预览构建后的静态网站：
+You can use the following command to preview the built static website locally:
 
 ```bash
 cd out && npx serve
 ```
 
-这将启动一个本地服务器，通常在 `http://localhost:3000` 提供静态网站服务。你也可以通过命令输出中提供的网络地址在局域网内的其他设备上访问。
+This will start a local server, typically serving the static website at `http://localhost:3000`. You can also access it from other devices on your network using the network address shown in the command output.
 
-## 使用说明
+## How to Use
 
-1. **上传Markdown文件**：点击上传区域或将文件拖拽到上传区域
-2. **处理图片**：点击"处理图片"按钮，等待处理完成
-3. **查看结果**：处理完成后，可以查看成功处理的图片和失败的错误信息
-4. **下载文件**：点击"下载处理后的MD文件"按钮下载处理后的文件，或等待自动下载的ZIP包
+1. **Upload Markdown File**: Click or drag a Markdown file to the upload area
+2. **Process Images**: Click the "Process Images" button and wait for processing to complete
+3. **View Results**: After processing, you can view successfully processed images and error information
+4. **Download Files**: Click the "Download Processed MD File" button to download the processed file, or wait for the automatic ZIP package download
 
-## 技术栈
+## Technology Stack
 
-- **前端框架**：Next.js 14 + React 18
-- **UI组件**：Ant Design 5
-- **代码编辑器**：Monaco Editor
-- **打包工具**：JSZip
-- **文件处理**：File-Saver
+- **Frontend Framework**: Next.js 14 + React 18
+- **UI Components**: Ant Design 5
+- **Code Editor**: Monaco Editor
+- **Packaging Tool**: JSZip
+- **File Processing**: File-Saver
 
-## 注意事项
+## Notes
 
-- 由于浏览器的安全限制，某些防盗链图片可能无法下载
-- 处理大型Markdown文件或大量图片时可能需要等待较长时间
-- 建议在处理过程中不要关闭或刷新浏览器页面
+- Due to browser security restrictions, some hotlink-protected images may not download
+- Processing large Markdown files or many images may take a longer time
+- It's recommended not to close or refresh the browser during processing
 
-## 隐私说明
+## Privacy Statement
 
-- 所有文件处理完全在浏览器本地进行，不会上传到任何服务器
-- 不会收集或存储您的Markdown内容或图片数据
+- All file processing is done entirely in the browser locally, no data is uploaded to any server
+- We do not collect or store your Markdown content or image data
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证，详情请查看 [LICENSE](LICENSE) 文件。
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 贡献指南
+## Contribution Guidelines
 
-欢迎提交问题报告和功能建议。如果您想贡献代码，请先提交issue讨论您的想法。
+Issue reports and feature suggestions are welcome. If you want to contribute code, please first open an issue to discuss your ideas.
 
-## 联系方式
+## Contact
 
-如有任何问题或建议，请通过以下方式联系我们：
+For any questions or suggestions, please contact us through:
 
-- GitHub Issues：[提交问题](https://github.com/zhb161/md-image-split/issues) 
+- GitHub Issues: [Submit an issue](https://github.com/zhb161/md-image-split/issues) 

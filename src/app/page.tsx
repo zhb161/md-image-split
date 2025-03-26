@@ -35,10 +35,10 @@ export default function Home() {
       setContent(text);
       setFileName(file.name);
       setResult(null);
-      message.success(`${file.name} 上传成功`);
+      message.success(`${file.name} uploaded successfully`);
       return false;
     } catch (error) {
-      message.error('文件读取失败');
+      message.error('Failed to read file');
       return false;
     }
   };
@@ -59,23 +59,23 @@ export default function Home() {
 
   const handleProcess = async () => {
     if (!content) {
-      message.warning('请先上传Markdown文件');
+      message.warning('Please upload a Markdown file first');
       return;
     }
 
     setProcessing(true);
     setProcessProgress(0);
     
-    // 模拟进度条
+    // Simulate progress bar
     const clearProgressSimulation = simulateProgress();
     
     try {
       const processResult = await processMarkdown(content);
       setResult(processResult);
       setProcessProgress(100);
-      message.success('处理完成');
+      message.success('Processing completed');
     } catch (error) {
-      message.error('处理失败');
+      message.error('Processing failed');
     } finally {
       clearProgressSimulation();
       setProcessing(false);
@@ -86,7 +86,7 @@ export default function Home() {
     <Layout className="min-h-screen">
       <header className="site-header">
         <h1>
-          <FileImageOutlined /> MD图片本地化工具
+          <FileImageOutlined /> MD Image Localizer
         </h1>
       </header>
       
@@ -101,9 +101,9 @@ export default function Home() {
               <p className="upload-icon">
                 <InboxOutlined />
               </p>
-              <p className="upload-text">点击或拖拽上传Markdown文件</p>
+              <p className="upload-text">Click or drag Markdown file to upload</p>
               <p className="upload-hint">
-                支持单个Markdown文件上传，文件中的外部图片将被下载到本地
+                Supports single Markdown file upload. External images will be downloaded locally.
               </p>
             </Dragger>
           </div>
@@ -120,12 +120,12 @@ export default function Home() {
                 loading={processing}
                 className="action-button primary"
               >
-                {processing ? '处理中...' : '处理图片'}
+                {processing ? 'Processing...' : 'Process Images'}
               </Button>
               
               {fileName && (
                 <span className="text-gray-500 ml-2">
-                  当前文件: {fileName}
+                  Current file: {fileName}
                 </span>
               )}
             </Space>
@@ -149,7 +149,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 slide-up" style={{ animationDelay: '0.2s' }}>
             <div className="card-container">
               <div className="card-title">
-                <FileImageOutlined /> 原始内容
+                <FileImageOutlined /> Original Content
               </div>
               <div className="editor-container">
                 <Editor
@@ -169,7 +169,7 @@ export default function Home() {
 
             <div className="card-container">
               <div className="card-title">
-                <FileDoneOutlined /> 处理结果
+                <FileDoneOutlined /> Processing Results
               </div>
               <div className="card-content">
                 {result ? (
@@ -177,20 +177,20 @@ export default function Home() {
                     <div className="stats-container">
                       <div className="stat-item">
                         <CheckCircleOutlined className="stat-icon text-green-500" />
-                        <span className="stat-title">成功处理图片:</span>
-                        <span className="stat-value">{result.images.length} 张</span>
+                        <span className="stat-title">Successfully processed:</span>
+                        <span className="stat-value">{result.images.length} images</span>
                       </div>
                       
                       <div className="stat-item">
                         <WarningOutlined className="stat-icon text-amber-500" />
-                        <span className="stat-title">处理失败:</span>
-                        <span className="stat-value">{result.errors.length} 张</span>
+                        <span className="stat-title">Failed:</span>
+                        <span className="stat-value">{result.errors.length} images</span>
                       </div>
                     </div>
 
                     {result.errors.length > 0 && (
                       <div className="mb-4">
-                        <h3 className="font-semibold mb-2">错误信息:</h3>
+                        <h3 className="font-semibold mb-2">Error messages:</h3>
                         <div className="max-h-32 overflow-y-auto">
                           {result.errors.map((error, index) => (
                             <div key={index} className="error-item">
@@ -204,7 +204,7 @@ export default function Home() {
 
                     {result.images.length > 0 && (
                       <div className="mb-4">
-                        <h3 className="font-semibold mb-2">成功处理:</h3>
+                        <h3 className="font-semibold mb-2">Successfully processed:</h3>
                         <div className="max-h-32 overflow-y-auto">
                           {result.images.map((image, index) => (
                             <div key={index} className="success-item">
@@ -227,7 +227,7 @@ export default function Home() {
                           saveAs(blob, fileName.replace(/\.md$/, '') + '-processed.md');
                         }}
                       >
-                        下载处理后的MD文件
+                        Download Processed MD File
                       </Button>
                     </div>
                   </div>
@@ -235,8 +235,8 @@ export default function Home() {
                   <div className="h-80 flex items-center justify-center">
                     <Result
                       icon={<FileImageOutlined style={{ color: '#1677ff' }} />}
-                      title="等待处理"
-                      subTitle="请先上传文件并点击处理按钮"
+                      title="Waiting for Processing"
+                      subTitle="Please upload a file and click the process button"
                     />
                   </div>
                 )}
